@@ -62,36 +62,40 @@ def m_Prefix(text):
 
 
 
-
 def p_Prefix(text):
-    if (text[:4]  =='peny'):
-        stemmed = re.sub('peny', 's', text)
-    elif (text[:4] =='peng'):
+    if text.startswith("peny"):
+        stemmed = re.sub("peny", "s", text)
+    elif text.startswith("peng"):
         if not text[4] in vowels:
-            stemmed = re.sub('peng', '', text)
+            stemmed = re.sub("peng", "", text)
         else:
-            stemmed = re.sub('peng', 'k', text)   
-    elif (text[:3] =='pem'):
-        if text[3] == 'b':
-            stemmed = re.sub('pem', '', text)
+            stemmed = re.sub("peng", "k", text)
+    elif text.startswith("pem"):
+        if text[3] == "b":
+            stemmed = re.sub("pem", "", text)
         else:
-            stemmed = re.sub('pem', 'p', text)
-    elif (text[:3] =='pen'):
+            stemmed = re.sub("pem", "p", text)
+    elif text.startswith("pen"):
         if text[3] in vowels:
-            stemmed = re.sub('pen', 't', text)
+            stemmed = re.sub("pen", "t", text)
+        elif text[3] in ['d', 'j']:
+            stemmed = re.sub("pen", "", text)
         else:
-            stemmed = re.sub('pen', '', text)
-    elif (text[:3] =='per'):
-            stemmed = re.sub('per', '', text)
-    elif (text[:2] =='pe'):
+            stemmed = re.sub("pen", "", text)
+            stemmed = re.sub("^[cdghjklmnpqrstvwxyz]", "", stemmed)
+    elif text.startswith("per"):
+        stemmed = re.sub("per", "", text)
+    elif text.startswith("pe"):
         stemmed = text[2:]
     else:
         stemmed = text
-   
 
     temp = Suffix(stemmed)
-    
+
     return Verify(temp, text)
+
+
+
 
 
 
