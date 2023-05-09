@@ -8,6 +8,7 @@ from functions import (
     ke_Prefix,
     ter_Prefix,
     ber_Prefix,
+    b_Prefix,
     Suffix,
     Verify,
 )
@@ -22,6 +23,8 @@ def malaystemmer(text):
         stemmedword = p_Prefix(text)
     elif text[0] + text[1] == "me":
         stemmedword = m_Prefix(text)
+    elif text[0] + text[1] == "be":
+        stemmedword = b_Prefix(text)
     elif text[0] + text[1] == "di":
         stemmedword = di_Prefix(text)
     elif text[0] + text[1] == "ke":

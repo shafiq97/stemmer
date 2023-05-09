@@ -17,6 +17,18 @@ def replace_last(source_string, replace_what, replace_with):
     head, _sep, tail = source_string.rpartition(replace_what)
     return head + replace_with + tail
 
+def b_Prefix(text):
+    if text.startswith("ber"):
+        if len(text) > 3 and text[3] not in vowels:
+            stemmed = text[3:]
+        else:
+            stemmed = text
+    else:
+        stemmed = text
+
+    temp = Suffix(stemmed)
+
+    return Verify(temp, text)
 
 
 def m_Prefix(text):
