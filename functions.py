@@ -2,11 +2,8 @@
 #use malaysiawordnet.txt for malay dictionary
 
 import re
-import nltk
 import time
 # import malaya
-import pandas as pd
-
 
 with open("malaysiawordnet.txt", "r", encoding="latin-1") as f:
     malaywords = f.read().splitlines()
