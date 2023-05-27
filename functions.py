@@ -29,8 +29,6 @@ def b_Prefix(text):
 
 
 def m_Prefix(text):
-    if text == 'melanda':
-        return 'landa'
     if (text[:6] =='memper'):
         stemmed = text[6:]
     elif (text[:4] =='meny'):
