@@ -144,7 +144,7 @@ def Suffix(stemmed):
             temp = stemmed[:-2]
         elif stemmed[-1] == 'i' and len(stemmed)>4:
             temp = replace_last(stemmed, 'i', '')
-        elif stemmed[-3:] == 'lah':  # Add case to remove 'lah' suffix
+        elif stemmed[-3:] == 'lah':
             temp = stemmed[:-3]
         else:
             temp = stemmed

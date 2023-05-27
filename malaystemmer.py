@@ -19,25 +19,24 @@ with open("stopwords.txt", "r", encoding="utf-8") as f:
 
 # Main function to stem Malay words
 def malaystemmer(text):
-    if text.startswith("pe"):
+    if text[0] + text[1] == "pe":
         stemmedword = p_Prefix(text)
-    elif text.startswith("me"):
+    elif text[0] + text[1] == "me":
         stemmedword = m_Prefix(text)
-    elif text.startswith("be"):
+    elif text[0] + text[1] == "be":
         stemmedword = b_Prefix(text)
-    elif text.startswith("di"):
+    elif text[0] + text[1] == "di":
         stemmedword = di_Prefix(text)
-    elif text.startswith("ke"):
+    elif text[0] + text[1] == "ke":
         stemmedword = ke_Prefix(text)
-    elif text.startswith("ter"):
+    elif text[0] + text[1] + text[2] == "ter":
         stemmedword = ter_Prefix(text)
-    elif text.startswith("ber"):
+    elif text[0] + text[1] + text[2] == "ber":
         stemmedword = ber_Prefix(text)
     else:
         stemmedword = p_Prefix(text)
 
     return stemmedword
-
 
 
 # Tokenize the input text into words
